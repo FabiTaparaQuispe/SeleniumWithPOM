@@ -32,10 +32,11 @@ public class RegisterTest extends BaseTest {
         //fill the form
         //registerPage.fillOutForm();
         //fills the form with fake data
-        registerPage.fillOutFormWithFakeData(faker.name().firstName(), faker.name().lastName(), email, faker.internet().password());
+        registerPage.fillOutFormWithFakeData(faker.name().firstName(), faker.name().lastName(), email, password);
 
         //submit the form
         registerPage.submitData();
+
 
 
         //driver.findElement(By.xpath("//*[@id='form-validate']/div/div[1]/button/span")); //se debe evitar el xpath absoluto

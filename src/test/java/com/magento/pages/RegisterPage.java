@@ -36,7 +36,7 @@ public class RegisterPage {
     }
 
     public void fillOutForm() {
-        driver.findElement(name).sendKeys("Pedro");
+        driver.findElement(name).sendKeys("Eduardo");
         driver.findElement(lastName).sendKeys("Hincho");
         driver.findElement(email).sendKeys("ahincho@unsa.edu.pe");
         driver.findElement(password).sendKeys("Sup3rP@ssword");
