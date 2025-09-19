@@ -1,7 +1,6 @@
 package com.magento.tests;
 
 import com.github.javafaker.Faker;
-import com.magento.utils.BaseTest;
 import com.magento.utils.Variables;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -28,10 +27,9 @@ public class RegisterTest extends BaseTest {
         String password = faker.internet().password(8,10,true,true,true);
 
         //go to register page
+        homePage.goToRegisterLink();
         registerPage.goToRegisterLink();
-        //fill the form
-        //registerPage.fillOutForm();
-        //fills the form with fake data
+
         registerPage.fillOutFormWithFakeData(faker.name().firstName(), faker.name().lastName(), email, password);
 
         //submit the form

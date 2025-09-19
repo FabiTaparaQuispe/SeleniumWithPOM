@@ -3,14 +3,12 @@ package com.magento.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class RegisterPage {
+public class RegisterPage extends BasePage {
 
     WebDriver driver;
     /*
     * Web Elements
     * */
-
-    By linkAccount = By.linkText("Create Account");
     By name = By.id("firstname");
     By lastName = By.id("lastname");
     By email = By.id("email_address");
@@ -23,36 +21,32 @@ public class RegisterPage {
      * Constructor
      * */
 
-    public RegisterPage(WebDriver driver) { //driver sera pasado desde la clase BaseTest en el metodo setUp()
+    public RegisterPage(WebDriver driver) {
+        super(driver); //driver sera pasado desde la clase BaseTest en el metodo setUp()
         this.driver = driver;
     }
 
     /*
      * Methods, functions
      * */
-
-    public void goToRegisterLink() {
-        driver.findElement(linkAccount).click();
-    }
-
     public void fillOutForm() {
-        driver.findElement(name).sendKeys("Eduardo");
-        driver.findElement(lastName).sendKeys("Hincho");
-        driver.findElement(email).sendKeys("ahincho@unsa.edu.pe");
-        driver.findElement(password).sendKeys("Sup3rP@ssword");
-        driver.findElement(confirmPassword).sendKeys("Sup3rP@ssword");
+        type(name, "Grissel");
+        type(lastName, "Tapara");
+        type(email, "gtapara@unsa.edu.pe");
+        type(password, "Sup3rP@ssword");
+        type(confirmPassword, "Sup3rP@ssword");
     }
 
     public void fillOutFormWithFakeData(String sfname, String slastName, String semail, String spassword) {
-        driver.findElement(name).sendKeys(sfname);
-        driver.findElement(lastName).sendKeys(slastName);
-        driver.findElement(email).sendKeys(semail);
-        driver.findElement(password).sendKeys(spassword);
-        driver.findElement(confirmPassword).sendKeys(spassword);
+        type(name,sfname);
+        type(lastName, slastName);
+        type(email, semail);
+        type(password, spassword);
+        type(confirmPassword, spassword);
     }
 
     public void submitData() {
-        driver.findElement(registerButton).submit();
+        click(registerButton);
     }
 
 }
